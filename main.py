@@ -1,3 +1,4 @@
+import sys
 from stats import *
 
 
@@ -7,7 +8,7 @@ def get_book_text(file_path):
 
 
 def main():
-    book_path = "./books/frankenstein.txt"
+    book_path = sys.argv[1]
     book = get_book_text(book_path)
     uniq_chars = get_char_count_as_list(book)
     total_words = get_num_words(book)
@@ -19,5 +20,9 @@ def main():
     for chars in uniq_chars:
         print(f"{chars['char']}: {chars['num']}")
 
+
+if len(sys.argv) != 2:
+    print("USAGE: python3 main.py <path_to_book>")
+    sys.exit(1)
 
 main()
