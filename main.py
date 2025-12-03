@@ -1,5 +1,4 @@
-from stats import get_num_words
-from stats import get_unique_chars
+from stats import *
 
 
 def get_book_text(file_path):
@@ -10,9 +9,15 @@ def get_book_text(file_path):
 def main():
     book_path = "./books/frankenstein.txt"
     book = get_book_text(book_path)
-    uniq_chars = get_unique_chars(book)
-    print(f"Found {get_num_words(book)} total words")
-    print(uniq_chars)
+    uniq_chars = get_char_count_as_list(book)
+    total_words = get_num_words(book)
+    print("============ BOOKBOT ============")
+    print(f"Analyzing book found at {book_path}...")
+    print("----------- Word Count ----------")
+    print(f"Found {total_words} total words")
+    print("--------- Character Count -------")
+    for chars in uniq_chars:
+        print(f"{chars['char']}: {chars['num']}")
 
 
 main()
