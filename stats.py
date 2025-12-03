@@ -12,7 +12,7 @@ def get_unique_chars(book):
         lower_char = char.lower()
         if lower_char in char_count:
             char_count[lower_char] += 1
-        else:
+        elif lower_char.isalpha():
             char_count[lower_char] = 1
 
     return char_count
